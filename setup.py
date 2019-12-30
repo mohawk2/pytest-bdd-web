@@ -3,17 +3,21 @@
 
 import os
 import codecs
+import re
 from setuptools import setup
 
+dirname = os.path.dirname(__file__)
 
 def read(fname):
     file_path = os.path.join(os.path.dirname(__file__), fname)
     return codecs.open(file_path, encoding='utf-8').read()
 
+with codecs.open(os.path.join(dirname, "pytest_bdd_web.py"), encoding="utf-8") as fd:
+    VERSION = re.compile(r".*__version__ = ['\"](.*?)['\"]", re.S).match(fd.read()).group(1)
 
 setup(
     name='pytest-bdd-web',
-    version='0.1.0',
+    version=VERSION,
     author='Ed J',
     author_email='mohawk2@users.noreply.github.com',
     maintainer='Ed J',
@@ -36,19 +40,15 @@ setup(
         'Framework :: Pytest',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Testing',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
         'Operating System :: OS Independent',
         'License :: OSI Approved :: MIT License',
-    ],
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: Implementation :: PyPy',
+    ]
+    + [("Programming Language :: Python :: %s" % x) for x in "2.7 3.4 3.5 3.6 3.7 3.8".split()],
     entry_points={
         'pytest11': [
             'pytest-bdd-web = pytest_bdd_web',

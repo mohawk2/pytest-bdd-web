@@ -70,6 +70,8 @@ Example:
         return URL_MAPPING
 """
 
+__version__ = '0.1.0'
+
 import pytest
 from pytest_bdd import when, then, parsers
 from pytest_bdd.steps import inject_fixture
