@@ -29,7 +29,8 @@ Implements a simple headless browser that requests web pages according
 to a URL mapping, parses web forms, and enables assertions about
 the various web responses using PyQuery selectors (similar to jQuery).
 
-Example:
+Example::
+
     Feature: Homepage functionality
         Scenario: Homepage
             When the user requests list home
@@ -55,7 +56,8 @@ Requires you to provide these fixtures:
 `client` must implement `get` and `post` methods, compatible with
 `Flask.test_client`.
 
-Example:
+Example::
+
     @pytest.fixture
     def app():
         """Create, configure a new app instance for each test."""
@@ -70,7 +72,8 @@ Example:
 and values mapping a human-readable "action" to an absolute URL in
 your web app.
 
-Example:
+Example::
+
     URL_MAPPING = {
         'home': {
             'list': '/',
@@ -120,8 +123,8 @@ Issues
 
 If you encounter any problems, please `file an issue`_ along with a detailed description.
 
+.. _`MIT`: http://opensource.org/licenses/MIT
 .. _`file an issue`: https://github.com/mohawk2/pytest-bdd-web/issues
-.. _`pytest`: https://github.com/pytest-dev/pytest
 .. _`tox`: https://tox.readthedocs.io/en/latest/
 .. _`pip`: https://pypi.org/project/pip/
 .. _`PyPI`: https://pypi.org/project
