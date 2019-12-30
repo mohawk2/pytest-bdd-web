@@ -27,7 +27,7 @@ setup(
     description='A simple plugin to use with pytest',
     long_description=read('README.rst'),
     py_modules=['pytest_bdd_web'],
-    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
+    python_requires='>=3.5',
     install_requires=[
         'pytest>=3.5.0',
         'pytest_bdd>=3.2',
@@ -43,12 +43,11 @@ setup(
         'Operating System :: OS Independent',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
     ]
-    + [("Programming Language :: Python :: %s" % x) for x in "2.7 3.4 3.5 3.6 3.7 3.8".split()],
+    + [("Programming Language :: Python :: %s" % x) for x in "3.6 3.7 3.8".split()],
     entry_points={
         'pytest11': [
             'pytest-bdd-web = pytest_bdd_web',
