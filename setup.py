@@ -45,7 +45,6 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
     ]
     + [("Programming Language :: Python :: %s" % x) for x in "3.6 3.7 3.8".split()],
     entry_points={
