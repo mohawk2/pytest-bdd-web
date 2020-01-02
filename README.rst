@@ -92,6 +92,145 @@ Example::
         return URL_MAPPING
 
 
+Available When Steps
+--------------------
+
+- the user requests {action} {what} *[args...]*
+
+Will operate on the URL looked up from the `url_mapping`, with
+any args substituted in for occurrences of `{}` in the mapped
+URL.
+
+Example::
+
+    When the user requests view user_profile
+
+- the user sets-array {afield} [{avalue}]
+
+Sets a form value on the current web page.
+
+Example::
+
+    When the user sets-array choices [1 3 4]
+
+- the user sets-array-outline <arrayfield> <arrayvalue>
+
+Sets a form value on the current web page.
+
+Example::
+
+    When the user sets-array-outline <arrayfield> <arrayvalue>
+
+    Examples:
+    | arrayfield | arrayvalue |
+    | choices    | [0 2 3]    |
+
+- the user sets {field} "{value}"
+
+Sets a form value on the current web page.
+
+Example::
+
+    When the user sets fullname "Big Bob"
+
+- the user submits requests {action} {what} *[args...]*
+
+Will operate on the URL looked up from the `url_mapping`, with
+any args substituted in for occurrences of `{}` in the mapped
+URL.
+
+Example::
+
+    When the user submits delete blog 4ec2d70
+
+
+Available Then Steps
+--------------------
+
+- response {response_index:d} status code is "{code:d}"
+
+Example::
+
+    Then response 0 status code is "200"
+
+- response {response_index:d} shows element "{selector}"
+
+Example::
+
+    Then response 0 shows element "div.success"
+
+- response {response_index:d} form-contains-array-outline <arrayfield> <arrayvalue>
+
+Then-clause asserting about a given outline form-field having the given
+outline array value.
+
+Example::
+
+    Then response 0 form-contains-array-outline <arrayfield> <arrayvalue>
+
+    Examples:
+    | arrayfield | arrayvalue |
+    | choices    | [0 2 3]    |
+
+- response {response_index:d} json-has "{key}"
+
+Example::
+
+    Then response 0 json-has "account_balance"
+
+- response {response_index:d} json-contains "{key}" "{phrase}"
+
+Example::
+
+    Then response 0 json-contains "account_balance" "45.67"
+
+- response {response_index:d} doesn't show element "{selector}"
+
+Example::
+
+    Then response 0 doesn't show element "div.alert"
+
+- response {response_index:d} element "{selector}" doesn't contain '{phrase}'
+
+Example::
+
+    Then response 0 element "#username" doesn't contain 'bob'
+
+- response {response_index:d} element "{selector}" doesn't contain-outline <contains>
+
+Then-clause asserting about a PyQuery-selected element not containing an
+outline value.
+
+Example::
+
+    Then response 0 element "#username" doesn't contain 'bob'
+
+- response {response_index:d} element "{selector}" doesn't contain-outline <contains>
+
+Then-clause asserting about a PyQuery-selected element not containing an
+outline value.
+
+Example::
+
+    Then response 0 element "#response" doesn't contain-outline <contains>
+
+    Examples:
+    | contains |
+    | 0 items added |
+
+- response {response_index:d} element "{selector}" contains-outline <contains>
+
+Then-clause asserting about a PyQuery-selected element containing an
+outline value.
+
+Example::
+
+    Then response 0 element "#username" contains-outline <contains>
+
+    Examples:
+    | contains |
+    | Bob |
+
 
 Requirements
 ------------
