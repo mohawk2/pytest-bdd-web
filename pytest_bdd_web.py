@@ -70,7 +70,7 @@ Example:
         return URL_MAPPING
 """
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 import pytest
 from pytest_bdd import when, then, parsers
